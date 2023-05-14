@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="ISO-8859-1">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+   <title>My Calculator</title>
+</head>
+<body>
+  <div class="container w-50 mt-5">
+     <img src="/img/home.jpeg" alt="ComIT logo">
+     <div class="jumbotron mt-3 py-4">
+       <h1 class="display-4">My Calculator!</h1>
+       <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+       <hr class="my-4">
+       <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+     
+       <form action="/calculate" method="post">
+  <div class="form-group row">
+    <label for="num1" class="col-sm-3 col-form-label text-right">Number 1: </label>
+    <div class="col-sm-5">
+      <input type="number" class="form-control" step="any" id="num1" name="num1"  th:value="${num1}" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="num2" class="col-sm-3 col-form-label text-right">Number 2: </label>
+    <div class="col-sm-5">
+      <input type="number" class="form-control" step="any" id="num2" name="num2" th:value="${num2}" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="operation" class="col-sm-3 col-form-label text-right">Operation: </label>
+    <div class="col-sm-5">
+      <select class="form-control custom-select" id="operation" name="operation" required>
+                <option value=""  th:selected="${operation eq '' }">Select an Operation</option>
+                <option value="+" th:selected="${operation eq '+'}">Addition</option>
+                <option value="-" th:selected="${operation eq '-'}">Subtraction</option>
+                <option value="*" th:selected="${operation eq '*'}">Multiplication</option>
+                <option value="/" th:selected="${operation eq '/'}">Division</option>
+                <option value="%" th:selected="${operation eq '%'}">Modulus</option>
+             </select>
+    </div>
+  </div>
+  <div class="form-group row" th:if="${!#strings.isEmpty(res)}">
+      <label for="num2" class="col-sm-3 col-form-label text-right">Result: </label>
+        <div class="col-sm-5">
+           <input type="text" class="form-control bg-warning text-dark" th:value="${#numbers.formatDecimal(res,1,2)}" readonly>
+        </div>
+     </div>
+  <div class="text-center mt-4">
+      <button type="Submit" class="btn btn-primary btn-sm">Calculate</button>
+  </div>
+  </form>
+      </div>
+      
+  </div>
+  
+  
+</body>
+</html>

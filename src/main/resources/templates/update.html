@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <title>Users System</title>
+</head>
+<body>
+  <div class="container mt-5 w-75">
+    <div th:replace="~{fragments/header :: header(list)}"></div>
+    <div class="jumbotron bg-light border border-info mt-3 py-4" style="min-height: 450px">
+    
+      <h1 class="display-5">Update Property</h1>
+      <form action="/update" method="post">
+         <div class="form-group">
+          <label for="idProperty">Id:</label>
+          <input type="text" class="form-control" id="idProperty" name="idPropertye" th:value="${property?.idProperty}" readonly>
+        </div>
+        <div class="form-group">
+          <label for="type">Type:</label>
+          <input type="text" class="form-control" id="type" name="type" placeholder="Type in Type of property" th:value="${property?.type}" required>
+        </div>
+        <div class="form-group">
+          <label for="squareFeet">Square Feet:</label>
+          <input type="text" class="form-control" id="squareFeet" name="squareFeet" placeholder="Type in Square Feet" th:value="${property?.squareFeet}" required>
+        </div>
+        <div class="form-group">
+          <label for="yearPropery">Year of Property:</label>
+          <input type="date" class="form-control" id="yearPropery" name="yearPropery" th:value="${#dates.format(property?.yearPropery, 'yyyy-MM-dd')}" required>
+        </div>
+        <div class="form-group">
+          <label for="bedroomNumbers">Bedroom Numbers:</label>
+          <input type="text" class="form-control" id="bedroomNumbers" name="bedroomNumbers" placeholder="Type in Numbers of Bedroom" th:value="${property?.bedroomNumbers}" required>
+        </div>
+         <div class="form-group">
+          <label for="bathroomNumbers">Bathroom Numbers:</label>
+          <input type="text" class="form-control" id="bathroomNumbers" name="battroomNumbers" placeholder="Type in Numbers of Bathroomroom" th:value="${property?.bathroomNumbers}" required>
+        </div>
+         <div class="form-group">
+          <label for="balcony">Balcony:</label>
+          <input type="text" class="form-control" id="balcony" name="balcony" placeholder="Type in Having Balcony" th:value="${property?.balcony}" required>
+        </div>
+         <div class="form-group">
+          <label for="pool">Pool:</label>
+          <input type="text" class="form-control" id="pool" name="pool" placeholder="Type in Having Pool" th:value="${property?.pool}" required>
+        </div>
+         <div class="form-group">
+          <label for="backyard">Backyard:</label>
+          <input type="text" class="form-control" id="backyard" name="backyard" placeholder="Type in Having Backyard" th:value="${property?.backyard}" required>
+        </div>
+         <div class="form-group">
+          <label for="garage">Garage:</label>
+          <input type="text" class="form-control" id="garage" name="garage" placeholder="Type in Having Garage" th:value="${property?.garage}" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-2" style="min-width: 100px">Save</button>
+      </form>
+    
+  </div>
+    
+    </div>
+ 
+  <div th:replace="~{fragments/header :: scripts}"></div>
+</body>
+</html>
+
