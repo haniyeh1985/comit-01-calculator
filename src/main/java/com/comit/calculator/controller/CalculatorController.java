@@ -23,14 +23,6 @@ import org.slf4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.PostMapping;
-
-
-//import com.comit.realestate.bean.RealestateBean;
-//import com.comit.realestate.service.RealestateService;
-//import com.comit.realestate.util.Util;
-
 
 @Controller
 public class CalculatorController {
@@ -117,14 +109,6 @@ public String deleteProperty(@PathVariable int id) {
 		
 		return property;
 	}
-
-
-
-
-
-
-
-
  
 }
 
